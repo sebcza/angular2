@@ -5,18 +5,27 @@ import {ICard} from "./card";
 
 @Injectable()
 export class CardService {
-    private _url =  'https://omgvamp-hearthstone-v1.p.mashape.com/cards/classes/';
+    private _url = 'https://omgvamp-hearthstone-v1.p.mashape.com/cards/';
+    private _classUrl =  'https://omgvamp-hearthstone-v1.p.mashape.com/cards/classes/';
+    private _factionUrl =  'https://omgvamp-hearthstone-v1.p.mashape.com/cards/factions/';
     private _headers = new Headers();
 
     constructor(private _http: Http) {
         this._headers.append('X-Mashape-Key', 'ixQZhwZE5HmshicU6MNZBMgjhtVgp1PCuzjjsncg1AXyWDQZeE');
     }
 
-    getByParam(paramName: string): Observable<ICard[]> {
-        return this._http.get(`${this._url}${paramName}`, {
-            headers: this._headers
-        })
-            .map((response: Response) => <ICard[]>response.json())
+    getByClass(className: string): Observable<ICard[]> {
+        return this.getCards(`classes/${className}`);
+    }
+    getByFaction(factionName: string): Observable<ICard[]> {
+        return this.getCards(`factions/${factionName}`);
+    }
+
+    private getCards(urlParams: string): Observable<ICard[]> {
+        return this._http.get(`${this._url}${urlParams}`, {
+                headers: this._headers
+            })
+            .map((response:Response) => <ICard[]>response.json())
             .catch(this.handleError);
     }
 

@@ -26,19 +26,28 @@ export class HsSearchTypes implements OnInit {
         this._cardInfoService.getInfo()
             .subscribe(
                 cardsInfo => {
+                    console.log(cardsInfo);
                     this.cardsInfo = cardsInfo
                 },
                 error => this.errorMessage = <any>error
             )
     }
 
-    searchItems(item: string): void {
-        this._cardService.getByParam(item)
+    private getByClass(item: string): void {
+        this.getByParam(item, 'getByClass');
+    }
+
+    private getByFaction(item: string): void {
+        this.getByParam(item, 'getByFaction');
+    }
+
+    private getByParam(item: string, methodName: string): void {
+        this._cardService[methodName](item)
             .subscribe(
-                cards => {
+                (cards: ICard[]) => {
                     this.cardsReceived.emit(cards);
                 },
-                error => this.errorMessage = <any>error
+                (error: any) => this.errorMessage = <any>error
             );
     }
 }

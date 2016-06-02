@@ -1,4 +1,6 @@
 <div *ngIf="cardsInfo">
     <hs-search-type [items]="cardsInfo.classes"
-                    (itemChosen)="searchItems($event)"></hs-search-type>
+                    (itemChosen)="getByClass($event)"></hs-search-type>
+    <hs-search-type [items]="cardsInfo.factions"
+                    (itemChosen)="getByFaction($event)"></hs-search-type>
 </div>
