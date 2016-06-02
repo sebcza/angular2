@@ -1,5 +1,6 @@
 import { Component } from 'angular2/core';
 import { HsSearchTypes } from '../hs-search-types/hs-search-types.component';
+import {ICard} from "../cards/card";
 
 @Component({
     selector: 'hs-search-dashboard',
@@ -7,5 +8,9 @@ import { HsSearchTypes } from '../hs-search-types/hs-search-types.component';
     directives: [HsSearchTypes]
 })
 export class HsSearchDashboardComponent {
+    cards: ICard[];
 
+    displayCards(cards: ICard[]) {
+        this.cards = cards;
+    }
 }

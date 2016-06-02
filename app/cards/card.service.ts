@@ -12,11 +12,11 @@ export class CardService {
         this._headers.append('X-Mashape-Key', 'ixQZhwZE5HmshicU6MNZBMgjhtVgp1PCuzjjsncg1AXyWDQZeE');
     }
 
-    getByClass(className: string): Observable<ICard> {
-        return this._http.get(`${this._url}${className}`, {
+    getByParam(paramName: string): Observable<ICard[]> {
+        return this._http.get(`${this._url}${paramName}`, {
             headers: this._headers
         })
-            .map((response: Response) => <ICard>response.json())
+            .map((response: Response) => <ICard[]>response.json())
             .catch(this.handleError);
     }
 
