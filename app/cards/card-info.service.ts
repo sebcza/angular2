@@ -7,7 +7,6 @@ import 'rxjs/Rx';
 @Injectable()
 export class CardInfoService {
     private _url =  'https://omgvamp-hearthstone-v1.p.mashape.com/info';
-    private _info: ICardInfo;
     private _headers = new Headers();
 
     // headers.append('X-Mashape-Key', ixQZhwZE5HmshicU6MNZBMgjhtVgp1PCuzjjsncg1AXyWDQZeE);
@@ -21,7 +20,6 @@ export class CardInfoService {
                 headers: this._headers
             })
             .map((response: Response) => <ICardInfo>response.json())
-            .do(data => this._info = data)
             .catch(this.handleError);
     }
 
