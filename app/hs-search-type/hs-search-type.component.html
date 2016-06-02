@@ -1,3 +1,9 @@
-<select>
-    <option *ngFor="#item of items">{{item}}</option>
-</select>
+<form [ngFormModel]="typeForm"
+      (ngSubmit)="onSubmit(typeForm.value)">
+    <select [ngFormControl]="type">
+        <option *ngFor="#item of items">
+            {{item}}
+        </option>
+    </select>
+    <button type="submit">Search</button>
+</form>
