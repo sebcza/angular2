@@ -1,3 +1,8 @@
 <h2>All cards</h2>
-<hs-search-all (cardsReceived)="setCards($event)"></hs-search-all>
+<!--<div class="text-center">-->
+    <!--<button class="btn btn-primary btn-lg" (click)="setAllCards()">Show all cards</button>-->
+<!--</div>-->
+<div class="col-md-6 col-md-offset-3">
+    <hs-search-all (cardsReceived)="setCards($event)"></hs-search-all>
+</div>
 <hs-cards-table [cards]="cards"></hs-cards-table>

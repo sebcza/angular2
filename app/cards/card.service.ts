@@ -12,8 +12,11 @@ export class CardService {
         this._headers.append('X-Mashape-Key', 'ixQZhwZE5HmshicU6MNZBMgjhtVgp1PCuzjjsncg1AXyWDQZeE');
     }
 
+    getAll(): Observable<ICard[]> {
+        return this.getCards('');
+    }
+
     getByName(name: string): Observable<ICard[]> {
-        console.log('name ', name);
         return this.getCards(`search/${name}`);
     }
 

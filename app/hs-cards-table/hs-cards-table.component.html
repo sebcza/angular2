@@ -1,9 +1,11 @@
-<table class="table" *ngIf="cards">
+<table class="table">
     <thead>
     <tr>
         <th>#</th>
         <th>Card name</th>
         <th>Player class</th>
+        <th>Set</th>
+        <th>Rarity</th>
     </tr>
     </thead>
     <tbody>
@@ -11,6 +13,8 @@
         <td>{{ i + 1 }}</td>
         <td>{{ card.name }}</td>
         <td>{{ card.playerClass }}</td>
+        <td>{{ card.cardSet }}</td>
+        <td>{{ card.rarity }}</td>
     </tr>
     </tbody>
 </table>

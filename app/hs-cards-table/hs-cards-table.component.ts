@@ -7,5 +7,4 @@ import {ICard} from "../cards/card";
 })
 export class HsCardsTable {
     @Input() cards: ICard[]
-    
 }
