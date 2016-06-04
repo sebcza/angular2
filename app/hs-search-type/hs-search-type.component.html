@@ -1,9 +1,14 @@
 <form [ngFormModel]="typeForm"
       (ngSubmit)="onSubmit(typeForm.value)">
-    <select [ngFormControl]="type">
-        <option *ngFor="#item of items">
-            {{item}}
-        </option>
-    </select>
-    <button type="submit">Search</button>
+    <div class="form-group">
+        <label>Search by {{ itemsType }}</label>
+        <select [ngFormControl]="type" class="form-control">
+            <option *ngFor="#item of items">
+                {{item}}
+            </option>
+        </select>
+    </div>
+    <div class="form-group text-right">
+        <button type="submit" class="btn btn-primary">Search by {{ itemsType }}</button>
+    </div>
 </form>

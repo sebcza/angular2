@@ -11,6 +11,7 @@ import {
 })
 export class HsSearchType {
     @Input() items: string[];
+    @Input() itemsType: string;
     @Output() itemChosen: EventEmitter<string> = new EventEmitter<string>();
     typeForm: ControlGroup;
     type: AbstractControl;
@@ -21,6 +22,8 @@ export class HsSearchType {
         });
 
         this.type = this.typeForm.controls['type'];
+
+        console.log('itemsType ', this.itemsType);
     }
 
     onSubmit(value: any): void {

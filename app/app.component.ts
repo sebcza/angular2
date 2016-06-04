@@ -8,7 +8,7 @@ import {HsAllCardsComponent} from "./hs-all-cards/hs-all-cards.component";
 @Component({
   selector: 'hearthstone-app',
   template: `
-    <a [routerLink]="['Dashboard']">Dashboard</a>
+    <a [routerLink]="['Dashboard']">Search for cards</a>
     <a [routerLink]="['All']">All cards</a>
     <router-outlet></router-outlet>
     `,
