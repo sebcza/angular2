@@ -4,6 +4,8 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/route
 
 import { HsSearchDashboard } from './hs-search-dashboard/hs-search-dashboard.component';
 import {HsAllCards} from "./hs-all-cards/hs-all-cards.component";
+import {CardInfoService} from "./cards/card-info.service";
+import {CardService} from "./cards/card.service";
 
 @Component({
   selector: 'hearthstone-app',
@@ -13,7 +15,7 @@ import {HsAllCards} from "./hs-all-cards/hs-all-cards.component";
     <router-outlet></router-outlet>
     `,
   directives: [ROUTER_DIRECTIVES],
-  providers: [HTTP_PROVIDERS, ROUTER_PROVIDERS]
+  providers: [HTTP_PROVIDERS, ROUTER_PROVIDERS, CardInfoService, CardService]
 })
 @RouteConfig([
   { path: '/dashboard', as: 'Dashboard', component: HsSearchDashboard, useAsDefault: true },

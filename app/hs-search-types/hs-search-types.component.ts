@@ -9,8 +9,7 @@ import {ICard} from "../cards/card";
 @Component({
     selector: 'hs-search-types',
     templateUrl: 'app/hs-search-types/hs-search-types.component.html',
-    directives: [HsSearchType, FORM_DIRECTIVES],
-    providers: [CardInfoService, CardService]
+    directives: [HsSearchType, FORM_DIRECTIVES]
 })
 export class HsSearchTypes implements OnInit {
     @Output() cardsReceived: EventEmitter<ICard[]> = new EventEmitter<ICard[]>();
@@ -26,7 +25,6 @@ export class HsSearchTypes implements OnInit {
         this._cardInfoService.getInfo()
             .subscribe(
                 cardsInfo => {
-                    console.log(cardsInfo);
                     this.cardsInfo = cardsInfo
                 },
                 error => this.errorMessage = <any>error

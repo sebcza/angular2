@@ -1,6 +1,7 @@
 import {Component, Output, EventEmitter} from "angular2/core";
-import {ICard} from "../cards/card";
 import {FormBuilder, ControlGroup, Validators, AbstractControl} from "angular2/common";
+import {CardService} from "../cards/card.service";
+import {ICard} from "../cards/card";
 
 @Component({
     selector: 'hs-search-all',
@@ -8,11 +9,12 @@ import {FormBuilder, ControlGroup, Validators, AbstractControl} from "angular2/c
     styleUrls: ['app/hs-search-all/hs-search-all.component.css']
 })
 export class HsSearchAll {
-    @Output() cardsSearched: EventEmitter<string> = new EventEmitter<string>();
+    @Output() cardsReceived: EventEmitter<ICard[]> = new EventEmitter<ICard[]>();
     nameForm: ControlGroup;
     name: AbstractControl;
+    errorMessage: string;
 
-    constructor(fb: FormBuilder) {
+    constructor(private fb: FormBuilder, private _cardService: CardService) {
         this.nameForm = fb.group({
             'name': ['', Validators.required]
         });
@@ -21,6 +23,12 @@ export class HsSearchAll {
     }
 
     searchCard(name: string) {
-        console.log('card name ', name);
+        this._cardService.getByName(name)
+            .subscribe(
+                (cards: ICard[]) => {
+                    this.cardsReceived.emit(cards);
+                },
+                (error: any) => this.errorMessage = <any>error
+            );
     }
 }

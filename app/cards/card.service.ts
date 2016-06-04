@@ -6,12 +6,15 @@ import {ICard} from "./card";
 @Injectable()
 export class CardService {
     private _url = 'https://omgvamp-hearthstone-v1.p.mashape.com/cards/';
-    private _classUrl =  'https://omgvamp-hearthstone-v1.p.mashape.com/cards/classes/';
-    private _factionUrl =  'https://omgvamp-hearthstone-v1.p.mashape.com/cards/factions/';
     private _headers = new Headers();
 
     constructor(private _http: Http) {
         this._headers.append('X-Mashape-Key', 'ixQZhwZE5HmshicU6MNZBMgjhtVgp1PCuzjjsncg1AXyWDQZeE');
+    }
+
+    getByName(name: string): Observable<ICard[]> {
+        console.log('name ', name);
+        return this.getCards(`search/${name}`);
     }
 
     getByClass(className: string): Observable<ICard[]> {

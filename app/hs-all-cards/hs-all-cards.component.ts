@@ -8,4 +8,7 @@ import {HsSearchAll} from "../hs-search-all/hs-search-all.component";
 })
 export class HsAllCards {
 
+    setCards(cards) {
+        console.log('cards ', cards);
+    }
 }
