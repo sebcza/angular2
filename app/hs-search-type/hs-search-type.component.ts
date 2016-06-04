@@ -22,8 +22,6 @@ export class HsSearchType {
         });
 
         this.type = this.typeForm.controls['type'];
-
-        console.log('itemsType ', this.itemsType);
     }
 
     onSubmit(value: any): void {

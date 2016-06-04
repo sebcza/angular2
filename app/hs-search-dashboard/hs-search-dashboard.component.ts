@@ -8,7 +8,7 @@ import {HsCardsTable} from "../hs-cards-table/hs-cards-table.component";
     templateUrl: 'app/hs-search-dashboard/hs-search-dashboard.component.html',
     directives: [HsSearchTypes, HsCardsTable]
 })
-export class HsSearchDashboardComponent {
+export class HsSearchDashboard {
     cards: ICard[];
 
     displayCards(cards: ICard[]) {
