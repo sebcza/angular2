@@ -6,6 +6,7 @@ import { HsSearchDashboard } from './hs-search-dashboard/hs-search-dashboard.com
 import {HsAllCards} from "./hs-all-cards/hs-all-cards.component";
 import {CardInfoService} from "./cards/card-info.service";
 import {CardService} from "./cards/card.service";
+import {HsCardDetail} from "./hs-card-detail/hs-card-detail.component";
 
 @Component({
   selector: 'hearthstone-app',
@@ -21,6 +22,7 @@ import {CardService} from "./cards/card.service";
 })
 @RouteConfig([
   { path: '/dashboard', as: 'Dashboard', component: HsSearchDashboard, useAsDefault: true },
-  { path: '/all', as: 'All', component: HsAllCards}
+  { path: '/all', as: 'All', component: HsAllCards},
+  { path: '/card/:id', as: 'Details', component: HsCardDetail}
 ])
 export class AppComponent { }

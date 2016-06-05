@@ -11,7 +11,11 @@
     <tbody>
     <tr *ngFor="#card of cards; #i = index">
         <td>{{ i + 1 }}</td>
-        <td>{{ card.name }}</td>
+        <td>
+            <a [routerLink]="['Details', {id: card.cardId}]">
+                {{ card.name }}
+            </a>
+        </td>
         <td>{{ card.playerClass }}</td>
         <td>{{ card.cardSet }}</td>
         <td>{{ card.rarity }}</td>

@@ -1,0 +1,10 @@
+<div *ngIf="card" class="text-center">
+    <h2>{{ card.name }}</h2>
+    <img src="{{ card.img }}" class="img-rounded">
+    <p *ngIf="card.type">type: {{ card.type }}</p>
+    <p *ngIf="card.text">text: {{ card.text }}</p>
+    <p *ngIf="card.playerClass">player class: {{ card.playerClass }}</p>
+    <div *ngIf="card.mechanics">mechanics:
+        <p *ngFor="#mechanic of card.mechanics">{{ mechanic.name }}</p>
+    </div>
+</div>

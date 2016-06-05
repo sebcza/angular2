@@ -14,6 +14,10 @@ export class CardService {
 
     getAll(): Observable<ICard[]> {
         return this.getCards('');
+    } 
+
+    getById(id: string): Observable<ICard[]> {
+        return this.getCards(`${id}`);
     }
 
     getByName(name: string): Observable<ICard[]> {
