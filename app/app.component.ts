@@ -10,8 +10,10 @@ import {CardService} from "./cards/card.service";
 @Component({
   selector: 'hearthstone-app',
   template: `
-    <a [routerLink]="['Dashboard']">Search for cards</a>
-    <a [routerLink]="['All']">All cards</a>
+    <div class="text-center">
+      <a [routerLink]="['Dashboard']" class="btn btn-default btn-lg">Search for cards</a>
+      <a [routerLink]="['All']" class="btn btn-default btn-lg">All cards</a>
+    </div> 
     <router-outlet></router-outlet>
     `,
   directives: [ROUTER_DIRECTIVES],

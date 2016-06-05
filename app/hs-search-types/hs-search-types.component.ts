@@ -43,7 +43,6 @@ export class HsSearchTypes implements OnInit {
         this._cardService[methodName](item)
             .subscribe(
                 (cards: ICard[]) => {
-                    console.log(cards);
                     this.cardsReceived.emit(cards);
                 },
                 (error: any) => this.errorMessage = <any>error

@@ -25,6 +25,9 @@ export class HsSearchType {
     }
 
     onSubmit(value: any): void {
+        if(!value.type) {
+            value.type = this.items[0];
+        }
         this.itemChosen.emit(value.type);
     }
 }
